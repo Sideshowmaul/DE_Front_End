@@ -1,0 +1,125 @@
+﻿<Window x:Class="DE_Front_End.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DE_Front_End"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Items" Name="ItemsTab">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="ItemDGV" Margin="0,0,397,0" 
+                              AutoGenerateColumns="False" 
+                              CanUserAddRows="False" 
+                              CanUserDeleteRows="False" 
+                              CanUserReorderColumns="False" 
+                              CanUserResizeRows="False"
+                              CanUserSortColumns="True"
+                              CanUserResizeColumns="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Offer" Binding="{Binding OfferName}"/>
+                            <DataGridTextColumn Header="Price (£)" Binding="{Binding Price}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <TextBox HorizontalAlignment="Left" Margin="507,32,0,0" Text="" Name ="txtItemName" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBox PreviewTextInput="txtPrice_PreviewTextInput" HorizontalAlignment="Left" Margin="507,55,0,0" Text="" Name ="txtPrice" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBox PreviewTextInput="txtPrice_PreviewTextInput" HorizontalAlignment="Left" Margin="507,78,0,0" Text="" Name ="txtDeliveryFee" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <Button Content="Add" HorizontalAlignment="Left" Name ="btnAddItem" Margin="601,101,0,0" VerticalAlignment="Top" Click="btnAddItem_Click"/>
+                    <Label Content="Name" HorizontalAlignment="Left" Margin="432,28,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Price" HorizontalAlignment="Left" Margin="432,51,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Delivert Fee" HorizontalAlignment="Left" Margin="432,74,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Offer" HorizontalAlignment="Left" Margin="432,163,0,0" VerticalAlignment="Top"/>
+                    <Button Content="Add" HorizontalAlignment="Left" Name ="btnAddOffer" Margin="643,166,0,0" VerticalAlignment="Top" Click="btnAddOffer_Click"/>
+                    <ComboBox HorizontalAlignment="Left" Name="cmbOffer" Margin="507,165,0,0" VerticalAlignment="Top" Width="120"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Stores">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="StoreDGV" Margin="0,0,397,0" Grid.ColumnSpan="2"
+                              AutoGenerateColumns="False" 
+                              CanUserAddRows="False" 
+                              CanUserDeleteRows="False" 
+                              CanUserReorderColumns="False" 
+                              CanUserResizeRows="False"
+                              CanUserSortColumns="True"
+                              CanUserResizeColumns="True"
+                              SelectionChanged="StoreDGV_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <DataGrid x:Name="InventoryDGV" Margin="397,136,0,0" Grid.ColumnSpan="2" 
+                              AutoGenerateColumns="False" 
+                              CanUserAddRows="False"
+                              CanUserDeleteRows="False" 
+                              CanUserReorderColumns="False" 
+                              CanUserResizeRows="False"
+                              CanUserSortColumns="True"
+                              CanUserResizeColumns="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="Product Name" Binding="{Binding ProductName}"/>
+                            <DataGridTextColumn Header="Stock Level" Binding="{Binding StockLevel}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="Update" Grid.ColumnSpan="2" Name="btnUpdateStock" HorizontalAlignment="Left" Margin="678,55,0,0" VerticalAlignment="Top" Click="btnUpdateStock_Click"/>
+                    <TextBox Grid.ColumnSpan="2" PreviewTextInput="txtPrice_PreviewTextInput" HorizontalAlignment="Left" Margin="536,56,0,0" Text="" Name="txtUpdateStock" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="Update Stock" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="450,52,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-0.074"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Customers">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="177*"/>
+                        <ColumnDefinition Width="617*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="CustomerDGV" Margin="0,0,397,0"
+                              AutoGenerateColumns="False" 
+                              CanUserAddRows="False"
+                              CanUserDeleteRows="False" 
+                              CanUserReorderColumns="False" 
+                              CanUserResizeRows="False"
+                              CanUserSortColumns="True"
+                              CanUserResizeColumns="True" Grid.ColumnSpan="2">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="Customer Name" Binding="{Binding Name}"/>
+                            <DataGridCheckBoxColumn Header="Loyalty Card Holder" Binding="{Binding IsLoyal}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <TextBox HorizontalAlignment="Left" Margin="330,32,0,0" Text="" Name ="txtCustomerName" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+                    <Label Content="Name" HorizontalAlignment="Left" Margin="255,28,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label Content="Loyalty Card" HorizontalAlignment="Left" Margin="255,51,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Button Content="Add" HorizontalAlignment="Left" Name="btnAddCustomer" Margin="424,76,0,0" VerticalAlignment="Top" Click="btnAddCustomer_Click" Grid.Column="1"/>
+                    <CheckBox Content="" Name="chkLoyaltyCard" HorizontalAlignment="Left" Margin="366,57,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label Content="Loyalty Card" HorizontalAlignment="Left" Margin="265,197,0,0" VerticalAlignment="Top" Grid.Column="1"/>                    
+                    <CheckBox Content="" x:Name="chkUpdateLoyaltyCard" HorizontalAlignment="Left" Margin="376,203,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Button Content="Update" Name="btnUpdateLoyaltyCard" Grid.Column="1" HorizontalAlignment="Left" Margin="424,203,0,0" VerticalAlignment="Top" Click="btnUpdateLoyaltyCard_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Finance">
+                <Button Content="Credit Check" Click="Button_Click"/>
+            </TabItem>
+            <TabItem Header="Offers">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="OfferDGV" Margin="0,0,397,0"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Reports">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="ReportDGV" Margin="0,0,397,0"/>
+                </Grid>
+            </TabItem>            
+        </TabControl>
+
+    </Grid>
+</Window>

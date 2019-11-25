@@ -1,0 +1,74 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Luke_\\Desktop\\C# Projects\\DE_Front_End\\DE_Front_End\\DE_Front_End.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Luke_\\Desktop\\C# Projects\\DE_Front_End\\DE_Front_End\\DE_Front_End.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Luke_\\Desktop\\C# Projects\\DE_Front_End\\DE_Front_End\\DE_Front_End.csproj",
+        "projectName": "DE_Front_End",
+        "projectPath": "C:\\Users\\Luke_\\Desktop\\C# Projects\\DE_Front_End\\DE_Front_End\\DE_Front_End.csproj",
+        "packagesPath": "C:\\Users\\Luke_\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Luke_\\Desktop\\C# Projects\\DE_Front_End\\DE_Front_End\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Luke_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "newtonsoft.json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
